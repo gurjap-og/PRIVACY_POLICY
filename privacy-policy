@@ -1,0 +1,24 @@
+RYDEX Privacy Policy
+Last updated: July 4, 2026
+1. Data We Collect
+When you use RYDEX, we may collect and store:
+
+Discord user IDs, usernames, and avatars
+Server (guild) IDs and server configuration settings (automod rules, ticket categories, welcome/farewell messages, logging channels, etc.)
+Message metadata needed for moderation features (e.g., invite/message counts for leaderboards)
+Deleted/edited message content, held temporarily in memory only (for the snipe/edit-snipe commands), and automatically cleared on bot restart — never written to a database
+Ticket transcripts, if your server uses the ticket system
+Invite tracking data (who invited whom) for leaderboard features
+
+2. How We Use Data
+Collected data is used solely to provide RYDEX's features: moderation, automod, tickets, welcome/farewell messages, leaderboards, vanity roles, and related server management tools. We do not sell user data, and we do not use message content to train machine learning or AI models.
+3. Data Storage
+Data is stored in a managed PostgreSQL database (hosted via Supabase), which encrypts all data at rest using AES-256 and encrypts all connections via TLS. Data is retained for as long as RYDEX remains in your server or until deletion is requested.
+4. Data Retention & Deletion
+You can request deletion of your data (or your server's data) at any time by contacting us via our support server: https://discord.gg/xhQETNERVT. Upon request, we will remove the relevant records from our database.
+5. Third Parties
+RYDEX does not share your data with third parties except where required to operate a feature you've enabled (e.g., invite/leaderboard tracking uses Discord's own API).
+6. Presence Data
+RYDEX may read your online status and activity (Presence) to power commands like /status, /userinfo, and the Vanity Roles feature. Presence data is read live and is not stored.
+7. Contact
+For privacy questions or data requests, join our support server: https://discord.gg/eMSkYzfX9b
