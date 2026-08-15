@@ -1,101 +1,82 @@
-# Rydex Privacy Policy
+# Privacy Policy
+**Last updated: August 15, 2026**
 
-**Last Updated: July 26, 2026**
+Rydex Terms of Service: https://discord.gg/XegkMxsd8j
 
-This Privacy Policy explains how Rydex ("Rydex," "we," "us," or "our") collects, uses, and protects information when you use the Rydex Discord bot (the "Service"). By inviting Rydex to a server or otherwise using the Service, you agree to the collection and use of information as described in this policy.
+### 1. Introduction
+Thanks for checking the Rydex. Before you use the bot please read and accept the Terms of Service of the bot and then this Privacy Policy.
 
----
+Your privacy matters for me. This document explains exactly how your data is used when you use the Rydex bot in a Discord server.
 
-## 1. Information We Collect
+When I say server admins, I mean anyone in a Discord server who can use Rydex configuration commands — either because they already have the right permissions, or because someone with higher permissions gave them access (for example through noprefix).
 
-Rydex is a Components V2 container-building bot. We only collect the data necessary to make the bot function.
+### 2. Summary
+I have been not collecting personalized data for the advertising or marketing and I never sell your data. The information I store is used only to make the Rydex features work and to keep improving the Rydex bot. Most of what gets saved is data that you or your server admins actively create (containers, welcome messages, moderation cases, voice channel setups, giveaways, etc.).
 
-### 1.1 Data You Provide Directly
-- **Container content** — the text, layout, colors, image/thumbnail URLs, and button links you create using the container builder. This is content you choose to include; we do not inspect or moderate it beyond what is needed for the bot to function.
-- **Discord identifiers** — your Discord user ID and username, where required to attribute or restrict actions (for example, author-only interaction locks, or no-prefix permission grants).
+If your server turns on Server Logs, Rydex will forward live event data — including the content of deleted or edited messages — to the log channel your admins set up. I don’t keep a separate copy of that content in my own database it’s only sent to the channel you chose.
 
-### 1.2 Data Collected Automatically
-- **Server (guild) data** — guild ID and guild name, used to scope saved containers to the correct server and enforce per-server container name uniqueness.
-- **Channel and message IDs** — recorded when a container is sent, so it can be tracked, edited, or referenced later.
-- **Container data** — saved container names, layouts, and accent colors, stored per server so they can be recalled, edited, cloned, or listed later (e.g. via `container info`, `container clone`, `container list`).
-- **Administrative/action logs** — for bot-owner and moderation tooling, we may log which action was performed, in which server, by whom, and when (e.g. granting no-prefix access, reboots). This is limited to operational/administrative actions, not general user messages.
-- **Basic technical/telemetry data** — uptime, latency, and system resource usage used for the bot's internal status dashboard. This data is aggregate and not tied to individual users.
+### 3. How Rydex Uses Data Inside Discord
+When you add the Rydex to your server, you allow me to see and process the server information the bot can access so it can provide the features below.
 
-### 1.3 What We Do Not Collect
-- We do **not** read, log, or store the general content of your messages outside of the container-builder flow.
-- We do **not** collect presence data (online/offline/idle status).
-- We do **not** collect payment information — Rydex is free to use.
-- We do **not** knowingly collect data from users under the age of 13 (or the minimum age required by Discord's Terms of Service in your jurisdiction, if higher).
+**3.1 Container Builder**
+Rydex lets you build and send custom Components V2 message layouts. When you save a container, I store its name, the guild ID, accent color, and the full layout data (text, images, buttons) so it can be recalled, edited, or resent later. If a container has interactive buttons, I also store the button’s custom ID, guild ID, and the action it performs. When a container is sent to a channel, I record the guild ID, channel ID, message ID, and layout data so the message can be tracked or edited afterward.
 
----
+**3.2 Welcome System**
+If your server enables the welcome messages, I store the welcome configuration for that server whether it’s enabled, the destination channel, accent color, layout data, auto-delete settings, an optional auto-role ID, and (if you turn them on) a DM welcome message and milestone-announcement settings (for example, every 100th member). This data is used only to greet new members the way you have configured.
 
-## 2. Discord Permissions & Intents
+**3.3 Join to Create (J2C)**
+If you set up Join-to-Create voice channels, I store the join/control channel IDs, each temporary voice channel’s owner, member limit, bitrate, region, and lock/ghost/NSFW/thread flags. I also store per-user preferences (name patterns, saved templates), any users a channel owner has blocked or trusted, any server-wide J2C blacklist entries (with reason if provided), and a simple count of channels created per server. All of this is used only to recreate your voice setup and enforce the owner controls (block, trust, limit, lock, etc.).
 
-To operate, Rydex requests the following privileged intents from Discord:
-- **Server Members Intent** — used to identify users for permission checks (e.g. author-only controls, owner/no-prefix access).
-- **Message Content Intent** — used to read command invocations (e.g. `.container`, `.help`) so the bot can respond to prefix commands.
+**3.4 Moderation**
+When your server uses Rydex’s moderation commands (warn, mute, kick, ban, and so on), I log each action as a case: the action taken, the target user’s ID and tag, the moderator’s ID, the reason given, and a timestamp. Warnings are stored separately per user per server. This history is only used to power the case, warnings, and modlog commands inside your server.
 
-We only use these intents for the purposes described above and do not use them for bulk data harvesting.
+**3.5 Server Logs**
+If you enable Server Logs, Rydex listens for the server events you’ve chosen to log (message edits/deletes, member joins/leaves, role changes, channel changes, etc.) and posts a formatted summary — including message content for edits and deletes when available — to the log channel(s) you configured. The relay happens in real time. I don’t store a second copy of that content in Rydex’s database; only your per-server configuration (which channels map to which events, and which events are turned off) is saved.
 
----
+**3.6 Giveaways**
+If you run a giveaway through Rydex, I store the prize, description, image URL, host ID, winner count, timing, and status, plus the user IDs of everyone who enters and every winner selected. This lets entries be tracked and re-rolled if needed.
 
-## 3. How We Use Information
+**3.7 Custom Prefix**
+Each server can set its own command prefix. I store the guild ID and the chosen prefix so Rydex responds to the right one in your server.
 
-We use the information we collect to:
-- Provide, operate, and maintain the container builder and related bot features
-- Save, edit, duplicate, list, and send containers on your behalf, per server
-- Enforce Discord's component and rate limits to keep the Service functional
-- Restrict certain commands to authorized users (e.g. the command author, server admins, or bot owners)
-- Diagnose bugs, monitor bot health, and improve performance
-- Maintain administrative logs for accountability of owner-level actions
+**3.8 Owner / Administrative Tools**
+For bot-owner administration I keep a no-prefix access list (who can run commands without a prefix, who granted it, and for how long) and a log of owner-level actions (what was done, in which server, by whom, and when — for example reboots or granting no-prefix access). This is only for administrative accountability and is not used to monitor normal user activity.
 
-We do not sell your data. We do not use your data for advertising or share it with third parties for marketing purposes.
+### 4. Discord Permissions & Intents
+To work properly, Rydex requests these privileged intents from Discord:
 
----
+- **Server Members Intent** — used to identify members for permission checks, auto-role on join, and owner/no-prefix authorization.
+- **Message Content Intent** — used to read prefix-command invocations (e.g. `.help`, `.container`) and, when Server Logs is enabled, to relay edited or deleted message content to your configured log channel.
+- **Voice States** — used to detect users joining or leaving Join-to-Create channels so temporary channels can be created, managed, and cleaned up.
 
-## 4. Data Storage & Retention
+I only use these intents for the purposes described in this policy. I do not use them for bulk data harvesting.
 
-- Container data, button actions, and sent-container records are stored in a database tied to the relevant server (guild) ID and persist until you delete them, the container is removed via a bot command, or Rydex is removed from your server.
-- If Rydex is removed from a server, associated container data for that server may be deleted during routine cleanup, though this is not guaranteed to happen immediately.
-- Administrative logs (e.g. no-prefix grants, owner action logs) are retained for as long as reasonably necessary for accountability and abuse-prevention purposes.
-- We take reasonable technical measures to protect stored data but cannot guarantee absolute security, as no method of electronic storage is 100% secure.
+### 5. What I Do Not Collect
+- I do not read, log, or store the general content of your messages outside the specific features listed above (container builder, welcome DMs, moderation reasons, and the Server Logs relay).
+- I do not collect Discord presence data (online / offline / idle status).
+- I do not collect any payment information — Rydex is free to use.
+- I do not knowingly collect data from users under the age of 13 (or the higher minimum age required by Discord’s Terms of Service in your region).
 
----
+### 6. Basic Technical Data
+I collect aggregate uptime, latency (ping), and system resource usage (CPU/memory) for Rydex’s own status and stats commands. This data describes the bot’s host, not individual users, and is never tied to any person.
 
-## 5. Data Sharing
+### 7. Security
+The servers and databases that power Rydex are not publicly accessible. I do my best to keep everything secure, but no method of electronic storage or transmission is 100% safe, and I cannot guarantee absolute data security. I am not liable for any data loss or data breach.
 
-We do not share, sell, or rent your information to third parties, except:
-- Where required by law, legal process, or governmental request
-- To protect the rights, property, or safety of Rydex, its users, or the public
-- With Discord itself, as an inherent part of how the Service operates on Discord's platform (see [Discord's Privacy Policy](https://discord.com/privacy))
+### 8. How Long Data Is Kept & How to Delete It
+Container, welcome, J2C, moderation, giveaway, server-log configuration, and prefix data are stored per server and stay until you delete them with the relevant bot command, the associated container/channel/giveaway is removed, or Rydex is removed from the server.
 
----
+When you remove Rydex from a server, the associated data for that server may be deleted during routine cleanup, though this is not guaranteed to happen immediately. Owner-level administrative logs (no-prefix grants, reboot/action logs) are kept for as long as reasonably needed for accountability.
 
-## 6. Your Rights & Choices
+Unless stated otherwise, data is not automatically deleted from Rydex’s servers. If you want something removed, contact me through the support server below and include your Discord user ID (not just your username).
 
-You may:
-- Delete container data you created via the bot's own commands (e.g. removing/clearing a container)
-- Request removal of data associated with your user ID by contacting us (see Section 9)
-- Remove Rydex from your server at any time via Discord's server settings, which stops further data collection from that server
+### 9. Children’s Privacy
+Rydex is not directed at children under 13. Discord itself requires users to meet a minimum age; please check Discord’s Terms of Service for the exact rules in your region. If I become aware that I have collected data from someone below the applicable minimum age, I will delete it.
 
-Since Rydex primarily stores data at the server (guild) level rather than tied to individual users, some data (e.g. shared container layouts) is managed collectively by server administrators.
+### 10. Changes to This Policy
+I may update this Privacy Policy from time to time. When I make material changes I’ll update the “Last updated” date at the top. Continuing to use Rydex after changes take effect means you accept the revised policy.
 
----
-
-## 7. Children's Privacy
-
-Rydex is not directed at children under 13. Discord itself requires users to meet a minimum age to use its platform; please refer to [Discord's Terms of Service](https://discord.com/terms) for details. If we become aware that we have inadvertently collected data from a user below the applicable minimum age, we will delete it.
-
----
-
-## 8. Changes to This Policy
-
-We may update this Privacy Policy from time to time. Material changes will be reflected by updating the "Last Updated" date above. Continued use of Rydex after changes take effect constitutes acceptance of the revised policy.
-
----
-
-## 9. Contact Us
-
-If you have questions about this Privacy Policy, want data deleted, or want to report a concern, contact us through the Rydex support server:
+### 11. Contact
+Questions about this Privacy Policy, requests to delete data, or anything else — just reach out through the Rydex support server:
 
 **Support Server:** https://discord.gg/XegkMxsd8j
